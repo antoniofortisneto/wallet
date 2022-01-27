@@ -28,13 +28,15 @@ class Login extends React.Component {
 
   checkPassword = () => {
     const { email, password } = this.state;
-    const validation = /\S+@\S+\.\S+/;
     const minCharacter = 6;
-    validation.test(email);
-    return validation && password.length >= minCharacter;
-    /*
-     https://stackoverflow.com/questions/35788383/regex-validation-in-javascript-email
-     */
+    if (
+      password.length >= minCharacter
+      && email.includes('@')
+      && email.includes('.')
+    ) {
+      return false;
+    }
+    return true;
   };
 
   render() {
