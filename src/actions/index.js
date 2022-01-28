@@ -1,7 +1,3 @@
 // Coloque aqui suas actions
-export const USER_ADD = 'USER_ADD';
-
-export const userAdd = (payload) => ({
-  type: USER_ADD,
-  payload,
-});
+export const LOGIN = 'LOGIN';
+export const loginAction = (email) => ({ type: LOGIN, email });
