@@ -7,7 +7,7 @@ class Wallet extends React.Component {
     const { loginState } = this.props;
     return (
       <div>
-        <div>bora ganar dinheiro</div>
+        <div>bora ganhar dinheiro</div>
         <header>
           <div data-testid="email-field">
             { loginState}

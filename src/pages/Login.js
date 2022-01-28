@@ -1,9 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { userAdd } from '../actions';
+import { loginAction } from '../actions';
 
 class Login extends React.Component {
   constructor() {
@@ -23,6 +22,7 @@ class Login extends React.Component {
   handleSubmit = () => {
     const { email } = this.state;
     const { submitEmail } = this.props;
+    console.log(email);
     submitEmail(email);
   };
 
@@ -32,7 +32,7 @@ class Login extends React.Component {
     if (
       password.length >= minCharacter
       && email.includes('@')
-      && email.includes('.')
+      && email.includes('.com')
     ) {
       return false;
     }
@@ -63,7 +63,7 @@ class Login extends React.Component {
           <Link to="/carteira">
             <button
               type="submit"
-              onClick={ this.hendleChenge }
+              onClick={ this.handleSubmit }
               disabled={ this.checkPassword() }
             >
               Entrar
@@ -74,13 +74,13 @@ class Login extends React.Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch) => bindActionCreators(
-  {
-    submitEmail: userAdd,
-  },
-  dispatch,
-);
+
+const mapDispatchToProps = (dispatch) => ({
+  submitEmail: (email) => dispatch(loginAction(email)),
+});
+
 Login.propTypes = {
   submitEmail: PropTypes.func.isRequired,
 };
+
 export default connect(null, mapDispatchToProps)(Login);
