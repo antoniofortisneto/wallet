@@ -29,10 +29,10 @@ class Table extends React.Component {
                 <td>{data.method}</td>
                 <td>{data.value}</td>
                 <td>{data.exchangeRates[data.currency].name}</td>
-                <td>{Number(data.exchangeRates[data.currency].ask)}</td>
+                <td>{Number(data.exchangeRates[data.currency].ask).toFixed(2)}</td>
                 <td>
                   {Number(data.exchangeRates[data.currency].ask
-               * data.value)}
+               * data.value).toFixed(2)}
                 </td>
                 <td>Real</td>
               </tr>
