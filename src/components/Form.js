@@ -51,28 +51,28 @@ class Form extends React.Component {
     return (
       <form>
         <input
-          data-testid="value-input"
-          type="number"
-          name="value"
-          id="value"
           value={ value }
+          id="value"
+          name="value"
+          type="number"
+          data-testid="value-input"
           onChange={ this.handleChange }
         />
         <input
-          data-testid="description-input"
-          type="text"
-          name="description"
-          id="description"
           value={ description }
+          id="description"
+          name="description"
+          type="text"
+          data-testid="description-input"
           onChange={ this.handleChange }
         />
         <label htmlFor="currency">
           Moeda:
           <select
-            data-testid="currency-input"
+            value={ currency }
             id="currency"
             name="currency"
-            value={ currency }
+            data-testid="currency-input"
             onChange={ this.handleChange }
           >
             <option data-testid="USD" value="USD">USD</option>
@@ -107,8 +107,8 @@ class Form extends React.Component {
         <label htmlFor="tag">
           Tag:
           <select
-            id="tag"
             value={ tag }
+            id="tag"
             name="tag-input"
             data-testid="tag-input"
             onChange={ this.handleChange }
