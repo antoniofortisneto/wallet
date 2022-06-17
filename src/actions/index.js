@@ -1,4 +1,3 @@
-// Coloque aqui suas actions
 import apiCurrency from '../helper/ApiService';
 
 export const LOGIN = 'LOGIN';
@@ -19,6 +18,17 @@ export const Fetch = (payload) => ({
   payload,
 });
 
+export const DELETE = 'DELETE';
+export const deleteButton = (id) => ({
+  type: DELETE,
+  id,
+});
+
+export const EDIT = 'EDIT';
+export const editButton = (payload) => ({
+  type: EDIT,
+  payload,
+});
 export const getCurrency = (currency) => async (dispatch) => {
   await apiCurrency(currency).then((response) => dispatch(Fetch(response)));
 };
